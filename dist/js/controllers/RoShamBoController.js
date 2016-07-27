@@ -53,7 +53,7 @@ app.controller('MainController', ['$scope', function($scope) {
       animTimeout = setTimeout(function() {
         $scope.shineClass = '';
         $scope.$apply();
-      }, 700);
+      }, 500);
   }
 
   $scope.resetScore = function() {
