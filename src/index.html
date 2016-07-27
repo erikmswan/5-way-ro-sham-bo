@@ -4,14 +4,57 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
         <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'> -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
+    <body ng-app="RoShamBoApp">
 
+      <div class="roshambo" ng-controller="MainController">
 
+        <div class="container-fluid">
+          <div class="row-fluid set-timing">
+            <div class="col-xs-12 padding-top fade-up">
+              <h2 class="robot">{{ robot }}</h2>
+            </div>
+            <div class="col-xs-12">
+              <h2 class="results {{ color }} {{ shineClass }}">{{ result }}</h2>
+            </div>
+            <div class="col-xs-12">
+              <h2 class="human">{{ human }}</h2>
+            </div>
+            <div class="col-xs-12 padding-top fade-up">
+              <div class="choose-btn-container">
+                <div ng-repeat="choice in choices">
+                  <!-- <choose-button info="choice"></choose-button> -->
+                  <a class="btn btn-primary choose-btn" ng-click="humanChoose(choice)">{{ choice.name }}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 padding-top score fade-up">
+              <h3>
+                Won: {{ won }}
+              </h3>
+              <h3>
+                Lost: {{ lost }}
+              </h3>
+              <h3>
+                Draw: {{ draw }}
+              </h3>
+              <a ng-click="resetScore()" class="btn btn-danger">Reset</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <script src="js/vendor/jquery-2.2.0.js"></script>
+      <script src="js/vendor/bootstrap.min.js"></script>
+      <script src="js/vendor/angular.min.js"></script>
       <script src="js/main.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/controllers/RoShamBoController.js"></script>
+      <script src="js/directives/chooseButton.js"></script>
     </body>
 </html>

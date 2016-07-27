@@ -1,6 +1,7 @@
 
 @import 'variables';
 
+/* SPACING */
 .margin { margin:@spacing; }
 .margin-top { margin-top:@spacing; }
 .margin-right { margin-right:@spacing; }
@@ -23,3 +24,78 @@
 .valign-middle { vertical-align:middle; }
 .valign-top { vertical-align:top; }
 .valign-bottom { vertical-align:bottom; }
+
+.block-center {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.flex { .flex(); }
+.table { display:table; }
+
+
+/* COLOR */
+.black { color:black; }
+.black-bg { background-color:black; }
+.gray { color:@gray; }
+.gray-bg { background-color:@gray; }
+.blue { color:@blue; }
+.blue-bg { background-color:@blue; }
+.green { color:@green; }
+.green-bg { background-color:@green; }
+.beige { color:@beige; }
+.beige-bg { background-color:@beige; }
+.brown { color:@brown; }
+.brown-bg { background-color:@brown; }
+
+
+/* ANIMATION */
+/* Animation mixins */
+.anim-hide() {
+  opacity:0;
+  visibility:hidden;
+}
+.anim-show() {
+  opacity:1;
+  visibility:visible;
+}
+
+/* Fade-in classes */
+.fade-in,
+.fade-up,
+.fade-right,
+.fade-down,
+.fade-left {
+  .anim-hide;
+  transition:opacity 0.8s ease-in-out, transform 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.fade-up { transform: translate(0, 15px); }
+.fade-down { transform: translate(0, -15px); }
+.fade-right { transform: translate(-15px, 0); }
+.fade-left { transform: translate(15px, 0); }
+
+.anim-init .fade-in, .anim-init.fade-in,
+.anim-init .fade-up, .anim-init.fade-up,
+.anim-init .fade-right, .anim-init.fade-right,
+.anim-init .fade-down, .anim-init.fade-down,
+.anim-init .fade-left, .anim-init.fade-left {
+  .anim-show;
+  transform: translate(0, 0);
+}
+
+
+/* Buttons */
+.btn { font-size:1em; }
+.btn-primary {
+  background-color:@blue;
+  box-shadow:0 4px 0 darken(@blue, 10%);
+  margin-top:@spacing / 3;
+  transition: all 0.3s;
+  &:active {
+    box-shadow:0 0 0 darken(@blue, 10%);
+    transform: translateY(4px);
+    background-color: lighten(@blue, 10%);
+  }
+}

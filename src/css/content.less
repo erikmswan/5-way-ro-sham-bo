@@ -1,2 +1,61 @@
 
-@import 'variables';
+/* Results */
+@keyframes shine1 {
+  0% { top:100%; opacity:0; }
+  50% { top:-10px; opacity:0.55; }
+  100% { top:-10px; opacity:0; }
+}
+@keyframes shine2 {
+  0% { top:100%; opacity:0; }
+  50% { top:-10px; opacity:0.55; }
+  100% { top:-10px; opacity:0; }
+}
+@keyframes shine3 {
+  0% { top:100%; opacity:0; }
+  50% { top:-10px; opacity:0.55; }
+  100% { top:-10px; opacity:0; }
+}
+
+
+.results {
+  display:table;
+  position:relative;
+  &:before {
+    content:'';
+    opacity:0;
+    position:absolute;
+    top:100%; right:-10px; bottom:-10px; left:-10px;
+    z-index:-1;
+    transition:all 0.3s;
+  }
+  // &.blue-shine,
+  // &.green-shine,
+  // &.brown-shine {
+  //   &:before { animation: shine 0.7s ease-in-out forwards; }
+  // }
+  &.blue-shine:before {
+    background-color:lighten(@blue, 30%);
+    animation: shine1 0.7s ease-in-out forwards;
+  }
+  &.green-shine:before {
+    background-color:lighten(@green, 30%);
+    animation: shine2 0.7s ease-in-out forwards;
+  }
+  &.brown-shine:before {
+    background-color:lighten(@brown, 30%);
+    animation: shine3 0.7s ease-in-out forwards;
+  }
+}
+
+/* Choose Buttons */
+.choose-btn-container,
+.score {
+  .flex();
+  .justify-content(space-between);
+  .flex-wrap(wrap);
+}
+.score { .align-items(center); }
+.choose-btn {
+  display:block;
+  width:100%;
+}

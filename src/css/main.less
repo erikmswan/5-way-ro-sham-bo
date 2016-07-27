@@ -1,11 +1,26 @@
 
 @import 'variables';
+@import 'mixins';
+
+/* GENERAL */
+body { background: radial-gradient(circle, #ffffff 81%, #efecec); }
+
+@media screen and (max-width:500px) {
+  body { font-size:12px; }
+}
+
+.container-fluid {
+  max-width:@content-width;
+  margin:0 auto;
+}
 
 // scope your styles
-// .scope {
+.roshambo {
+
 @import 'typography';
 @import 'fonts';
 @import 'modular';
 @import 'content';
 @import 'responsive';
-// }
+
+}

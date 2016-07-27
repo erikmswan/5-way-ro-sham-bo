@@ -1,0 +1,70 @@
+/* flexbox */
+.flex() {
+  display:-ms-flexbox;
+  display:flex;
+}
+.flex(@important) when (@important = important) {
+  display:-ms-flexbox !important;
+  display:flex !important;
+}
+.flex(@important) when (default()) {
+  display:-ms-flexbox;
+  display:flex;
+}
+
+.flex-direction(@val) {
+  flex-direction:@val;
+  -ms-flex-direction:@val;
+}
+
+.order(@val) {
+  order:@val;
+  -ms-flex-order:@val;
+}
+
+.align-items(@val) when (@val = start), (@val = end) {
+  align-items:~"flex-@{val}";
+  -ms-flex-align:@val;
+}
+.align-items(@val) when (@val = flex-start) {
+  align-items:@val;
+  -ms-flex-align:start;
+}
+.align-items(@val) when (@val = flex-end) {
+  align-items:@val;
+  -ms-flex-align:end;
+}
+.align-items(@val) when (default()) {
+  align-items:@val;
+  -ms-flex-align:@val;
+}
+
+.justify-content(@val) when (@val = start), (@val = end) {
+  justify-content:~"flex-@{val}";
+  -ms-flex-pack:@val;
+}
+.justify-content(@val) when (@val = flex-start) {
+  justify-content:@val;
+  -ms-flex-pack:start;
+}
+.justify-content(@val) when (@val = flex-end) {
+  justify-content:@val;
+  -ms-flex-pack:end;
+}
+.justify-content(@val) when (@val = justify), (@val = space-between) {
+  justify-content:space-between;
+  -ms-flex-pack:justify;
+}
+.justify-content(@val) when (default()) {
+  justify-content:@val;
+  -ms-flex-pack:@val;
+}
+
+.flex-wrap(@val) when (@val = none), (@val = nowrap) {
+  flex-wrap:nowrap;
+  -ms-flex-wrap:none;
+}
+.flex-wrap(@val) when (default()) {
+  flex-wrap:@val;
+  -ms-flex-wrap:@val;
+}

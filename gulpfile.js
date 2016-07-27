@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     error = require('gulp-util'),
     imagemin = require('gulp-imagemin'),
-    jshint = require('gulp-jshint'),
+    // jshint = require('gulp-jshint'),
     less = require('gulp-less'),
     minifyCSS = require('gulp-cssnano'),
     minifyHTML = require('gulp-htmlmin'),
@@ -47,13 +47,13 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(paths.dist.js));
 });
 
-// JSHint task
-gulp.task('jshint', function() {
-  gulp.src(paths.src.js + '*.js')
-    .pipe(cache('linting'))
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
-});
+// // JSHint task
+// gulp.task('jshint', function() {
+//   gulp.src(paths.src.js + '*.js')
+//     .pipe(cache('linting'))
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('jshint-stylish'));
+// });
 
 
 /* STYLES --------------------*/
@@ -106,7 +106,8 @@ gulp.task('build', function() {
 /* DEFAULT --------------------*/
 
 // gulp.task('default', ['build', 'less', 'imagemin', 'minifyHTML', 'scripts']);
-gulp.task('default', ['build', 'less', 'imagemin', 'jshint', 'scripts']);
+// gulp.task('default', ['build', 'less', 'imagemin', 'jshint', 'scripts']);
+gulp.task('default', ['build', 'less', 'imagemin', 'scripts']);
 
 
 /* WATCH --------------------*/
@@ -116,7 +117,7 @@ gulp.task('watch', function() {
   gulp.watch([paths.src.base + '*', paths.src.base + '**/*', '!' + paths.src.base + '**/*.less'], ['build'])
 
   // watch for JS changes
-  gulp.watch(paths.src.js + '**/*.js', ['jshint', 'scripts']);
+  gulp.watch(paths.src.js + '**/*.js', ['scripts']);
 
   // watch for CSS changes
   gulp.watch(paths.src.css + '*.less', ['less']);
