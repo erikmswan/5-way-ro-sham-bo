@@ -22,7 +22,8 @@ app.controller('MainController', ['$scope', function($scope) {
 
   $scope.humanChoose = function(choice) {
       var humanChoice = choice.index + 1
-      ,   robotChoice = Math.floor(Math.random() * (5 - 1 + 1) + 1);
+      ,   robotChoice = Math.ceil(Math.random() * choices.length);
+
       $scope.human = choice.name;
       $scope.robot = 'I choose ' + $scope.choices[robotChoice - 1].name + ', human.';
 
@@ -38,7 +39,7 @@ app.controller('MainController', ['$scope', function($scope) {
       ,   smallest = Math.min(humanChoice, robotChoice)
       ,   bool = (biggest - smallest) % 2;
 
-      if (bool && smallest === humanChoice || !bool && biggest === humanChoice) {
+      if ((bool && smallest === humanChoice) || (!bool && biggest === humanChoice)) {
         $scope.result = 'Lose';
         $scope.color = 'brown';
         $scope.shineClass = 'brown-shine';

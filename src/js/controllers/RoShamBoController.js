@@ -22,7 +22,8 @@ app.controller('MainController', ['$scope', function($scope) {
 
   $scope.humanChoose = function(choice) {
       var humanChoice = choice.index + 1
-      ,   robotChoice = Math.floor(Math.random() * 5 + 1);
+      ,   robotChoice = Math.ceil(Math.random() * choices.length);
+
       $scope.human = choice.name;
       $scope.robot = 'I choose ' + $scope.choices[robotChoice - 1].name + ', human.';
 
