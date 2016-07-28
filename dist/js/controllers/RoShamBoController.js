@@ -61,6 +61,8 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.lost = 0;
     $scope.draw = 0;
     $scope.robot = 'This pleases me.'
+    $scope.human = '';
+    $scope.result = '';
   }
 
 }]);
